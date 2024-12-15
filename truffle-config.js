@@ -1,31 +1,30 @@
+// truffle-config.js
 
-module.exports = {
-  networks: {
+// CommonJS version
+require('dotenv').config();
 
-    development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 7545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
-    },
-    // ropsten: {
-    //   provider: () => new HDWalletProvider(
-    //     mnemonic,
-    //     process.env.ROPSTEN_URL),
-    //   network_id: 3
-    // },
-  },
+const networks = {
+  development: {
+    host: "127.0.0.1", // Localhost
+    port: 7545, // Ganache default port
+    network_id: "*", // Matches any network id
+  }
+};
 
-  contracts_directory: './src/contracts/',
-  contracts_build_directory: './src/abis/',
+const contracts_directory = "./src/contracts/";
+const contracts_build_directory = "./src/abis/";
 
-  // Configure your compilers
-  compilers: {
-    solc: {
-      version: "^0.8.0",
-      optimiser: {
-        enabled: true,
-        runs: 200
-      }
+const compilers = {
+  solc: {
+    version: "^0.8.0", // Specify the Solidity compiler version
+    settings: {
+      optimizer: {
+        enabled: true, // Enable optimization
+        runs: 200 // Optimize for how many times you intend to run the code
+      },
+      evmVersion: "istanbul" // EVM version compatibility
     }
   }
-}
+};
+
+module.exports = { networks, contracts_directory, contracts_build_directory, compilers };

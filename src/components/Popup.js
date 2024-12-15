@@ -2,16 +2,12 @@ import React,{useEffect,useState} from 'react'
 import './Popup.css'
 
 function Popup({isOpen,setIsOpen,repairs}) {
-   const [repair,setRepair] = useState([]);
-   useEffect(()=>{
-    setRepair(repairs);
-   },[]) 
-
+  console.log(repairs)
   return (
     isOpen ? (
     <div className="popup">
          <div className="popup-inner">
-            {repair.map((r,index)=>{
+            {repairs.map((r,index)=>{
                 return <><div key={index}>{r}</div><hr/></>
             })}
             <div className="close-btn" onClick={()=>{

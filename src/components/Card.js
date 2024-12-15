@@ -6,7 +6,7 @@ import {
   MDBCardTitle,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import Popup from "./Popup";
+import Popup from "./Popup.js";
 import "./Popup.css";
 
 // warranty card component
@@ -18,7 +18,7 @@ export const Card = ({ card, contract, account }) => {
   const [createdDate, setCreatedDate] = useState("");
   const [isExpired, setIsExpired] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  let repairs = [];
+  const [repairs, setRepairs] = useState([]);
 
   // sending mail on NFT Transfer
   const sendMail = (recipient) => {
@@ -51,33 +51,46 @@ export const Card = ({ card, contract, account }) => {
   // getting the token id
   const getToken_id = async () => {
     const temp = await contract.methods.getFlipCardId(card).call();
-    setToken_id(temp._hex);
+    setToken_id(temp);
   };
 
   // getting the data of NFT to display on warranty cards
   const getData = async () => {
     const temp = await contract.methods.getData(card).call();
-    const tempdate = temp.expiryDate;
-    const expdate = new Date(tempdate * 1000);
+    console.log(temp)
+    // Ensure that temp.expiryDate is a BigInt and convert to a Number (in milliseconds)
+    const tempdate = Number(temp.expiryDate); // Convert BigInt to Number if needed
+    const expdate = new Date(tempdate * 1000); // Convert seconds to milliseconds
     const presentdate = new Date();
+    
+    // Check expiry
     if (expdate < presentdate) {
       setIsExpired(true);
     }
-
-    //setting expiry date
+  
+    // Setting expiry date
     setExpiryDate(expdate.toLocaleDateString());
-    const tempdate2 = temp.createdDate;
+    
+    // Convert createdDate (assuming it's a BigInt) to Date
+    const tempdate2 = Number(temp.createdDate); // Convert BigInt to Number if needed
     const createddate = new Date(tempdate2 * 1000);
     setCreatedDate(createddate.toLocaleDateString());
+  
+    // Set email and phone number
     setEmail(temp.email);
     setPhoneNumber(temp.mobileNumber);
-    for (let i = 0; i < 100; i++) {
-      if (temp.previousRepairs[i] == "") {
+  
+    const repairs = [];
+    // Handle previous repairs (ensure temp.previousRepairs is not BigInt and is an array)
+    for (let i = 0; i < temp.previousRepairs.length; i++) {
+      if (temp.previousRepairs[i] === "") {
         break;
       }
-      repairs.push(temp.previousRepairs[i]);
+      repairs.push(temp.previousRepairs[i]); // Push repair info into repairs array
     }
+    setRepairs(repairs)
   };
+  
 
   useEffect(() => {
     getToken_id();
@@ -127,7 +140,6 @@ export const Card = ({ card, contract, account }) => {
           <MDBCardText>
             Expiry Date : {!isExpired ? expiryDate : "Already Expired"}
           </MDBCardText>
-          {repairs}
           <form
             onSubmit={(e) => {
               e.preventDefault();

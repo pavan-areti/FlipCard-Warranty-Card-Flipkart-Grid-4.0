@@ -7,7 +7,7 @@
       "outputs": [
         {
           "internalType": "string",
-          "name": "_name",
+          "name": "",
           "type": "string"
         }
       ],
@@ -20,7 +20,7 @@
       "outputs": [
         {
           "internalType": "string",
-          "name": "_symbol",
+          "name": "",
           "type": "string"
         }
       ],
@@ -28,7 +28,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"_symbol\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/interfaces/IERC721Metadata.sol\":\"IERC721Metadata\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/interfaces/IERC721Metadata.sol\":{\"keccak256\":\"0x34ed328b91fd89ea409f78f433a0534122b151fcb1a04888b313501a944e779d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ca88ce63355680156b05817c5c6a16673908affbf17f50c31fd6f09506ac16a4\",\"dweb:/ipfs/QmTYBUpqZmLNDYi7xybNeyMFrG2yDfqs86kZJsLNdA4NhV\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.28+commit.7893614a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"name()\":{\"details\":\"Returns the name of the token.\",\"returns\":{\"_0\":\"The name of the token.\"}},\"symbol()\":{\"details\":\"Returns the symbol of the token.\",\"returns\":{\"_0\":\"The symbol of the token.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/interfaces/IERC721Metadata.sol\":\"IERC721Metadata\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/interfaces/IERC721Metadata.sol\":{\"keccak256\":\"0xcbfde012d8e6acf5dcd6bfbf1631aa384da1c1c2577947a911dc0f509b2621ba\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://08aaf755d6fbeb7397284ad3ff00a427d8ea2f3c0a37117c5d37a0f8caf9e792\",\"dweb:/ipfs/QmRLRPbRUxzv9SoJra7aUnRg5cQD6hy3RB1DaeireRK3Gm\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -36,32 +36,29 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ninterface IERC721Metadata {\r\n    function name() external view returns (string memory _name);\r\n\r\n    function symbol() external view returns (string memory _symbol);\r\n\r\n}",
-  "sourcePath": "C:\\Users\\pavan\\OneDrive\\Desktop\\Dapp\\nft-marketplace-starter-kit\\src\\contracts\\interfaces\\IERC721Metadata.sol",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ninterface IERC721Metadata {\r\n\r\n    /**\r\n     * @dev Returns the name of the token.\r\n     * @return The name of the token.\r\n     */\r\n    function name() external view returns (string memory);\r\n\r\n    /**\r\n     * @dev Returns the symbol of the token.\r\n     * @return The symbol of the token.\r\n     */\r\n    function symbol() external view returns (string memory);\r\n}\r\n",
+  "sourcePath": "C:\\Users\\pavan\\OneDrive\\Desktop\\codes\\Projects\\BrainStorm_NITSilchar_FlipkartGrid4.0\\NFT\\src\\contracts\\interfaces\\IERC721Metadata.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/interfaces/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC721Metadata": [
-        1091
+        1190
       ]
     },
-    "id": 1092,
+    "id": 1191,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1080,
+        "id": 1177,
         "literals": [
           "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
+          "^",
+          "0.8",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:32:9"
+        "src": "33:23:10"
       },
       {
         "abstract": false,
@@ -70,42 +67,48 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1091,
+        "id": 1190,
         "linearizedBaseContracts": [
-          1091
+          1190
         ],
         "name": "IERC721Metadata",
-        "nameLocation": "79:15:9",
+        "nameLocation": "70:15:10",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+            "documentation": {
+              "id": 1178,
+              "nodeType": "StructuredDocumentation",
+              "src": "95:95:10",
+              "text": " @dev Returns the name of the token.\n @return The name of the token."
+            },
             "functionSelector": "06fdde03",
-            "id": 1085,
+            "id": 1183,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "name",
-            "nameLocation": "111:4:9",
+            "nameLocation": "205:4:10",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1081,
+              "id": 1179,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "115:2:9"
+              "src": "209:2:10"
             },
             "returnParameters": {
-              "id": 1084,
+              "id": 1182,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1083,
+                  "id": 1181,
                   "mutability": "mutable",
-                  "name": "_name",
-                  "nameLocation": "155:5:9",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1085,
-                  "src": "141:19:9",
+                  "scope": 1183,
+                  "src": "235:13:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -113,10 +116,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1082,
+                    "id": 1180,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "141:6:9",
+                    "src": "235:6:10",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -125,42 +128,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "140:21:9"
+              "src": "234:15:10"
             },
-            "scope": 1091,
-            "src": "102:60:9",
+            "scope": 1190,
+            "src": "196:54:10",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
+            "documentation": {
+              "id": 1184,
+              "nodeType": "StructuredDocumentation",
+              "src": "258:99:10",
+              "text": " @dev Returns the symbol of the token.\n @return The symbol of the token."
+            },
             "functionSelector": "95d89b41",
-            "id": 1090,
+            "id": 1189,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "symbol",
-            "nameLocation": "179:6:9",
+            "nameLocation": "372:6:10",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1086,
+              "id": 1185,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "185:2:9"
+              "src": "378:2:10"
             },
             "returnParameters": {
-              "id": 1089,
+              "id": 1188,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1088,
+                  "id": 1187,
                   "mutability": "mutable",
-                  "name": "_symbol",
-                  "nameLocation": "225:7:9",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1090,
-                  "src": "211:21:9",
+                  "scope": 1189,
+                  "src": "404:13:10",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -168,10 +177,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1087,
+                    "id": 1186,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "211:6:9",
+                    "src": "404:6:10",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -180,32 +189,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "210:23:9"
+              "src": "403:15:10"
             },
-            "scope": 1091,
-            "src": "170:64:9",
+            "scope": 1190,
+            "src": "363:56:10",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1092,
-        "src": "69:170:9",
-        "usedErrors": []
+        "scope": 1191,
+        "src": "60:362:10",
+        "usedErrors": [],
+        "usedEvents": []
       }
     ],
-    "src": "33:206:9"
+    "src": "33:391:10"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.15+commit.e14f2714.Emscripten.clang"
+    "version": "0.8.28+commit.7893614a.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.8",
-  "updatedAt": "2022-07-25T06:52:52.715Z",
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-12-15T07:25:47.435Z",
   "devdoc": {
     "kind": "dev",
-    "methods": {},
+    "methods": {
+      "name()": {
+        "details": "Returns the name of the token.",
+        "returns": {
+          "_0": "The name of the token."
+        }
+      },
+      "symbol()": {
+        "details": "Returns the symbol of the token.",
+        "returns": {
+          "_0": "The symbol of the token."
+        }
+      }
+    },
     "version": 1
   },
   "userdoc": {

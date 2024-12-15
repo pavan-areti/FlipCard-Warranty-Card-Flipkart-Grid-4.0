@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import { Card } from "./Card";
+import { Card } from "./Card.js";
 import Web3 from "web3";
 import FlipCard from "../abis/FlipCard.json";
 import detectEthereumProvider from "@metamask/detect-provider";
@@ -75,11 +74,11 @@ const App = () => {
         .then((tokens) => {
           for (let i = 0; i < tokens.length; i++) {
             contract.methods
-              .flipCards(tokens[i]._hex)
+              .flipCards(tokens[i])
               .call()
               .then((card) => {
                 setFlipcards((flipcards) => [...flipcards, card]);
-                setTokenslist((tokenslist) => [...tokenslist, tokens[i]._hex]);
+                setTokenslist((tokenslist) => [...tokenslist, tokens[i]]);
               })
               .catch((err) => {
                 console.log(err);
@@ -204,7 +203,7 @@ const App = () => {
 
       <div className="container-fluid mt-1">
         {/* // as there is no authentication system , we hardcoded like this using one of our address */}
-        {account[0] == 0xe760dcd7ddea763dab416aeb06b3cb79a5fbd152 ? (
+        {account[0] == 0x65281f175efe54bf8fa756b3dca2f66efc5ab63c ? (
           <>
             <div className="row">
               <main role="main" className="col-lg-12 d-flex text-center">
